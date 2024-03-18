@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class NotificationService {
   userID!: number;
   constructor(private http: HttpClient) {
-    this.userID = sessionStorage.getItem('session')
-      ? JSON.parse(sessionStorage.getItem('session') as string).user_id
+    this.userID = localStorage.getItem('session')
+      ? JSON.parse(localStorage.getItem('session') as string).user_id
       : 0;
   }
 
@@ -17,6 +17,7 @@ export class NotificationService {
       params: {
         userId: this.userID,
       },
+      withCredentials: true,
     });
   }
 
@@ -25,6 +26,7 @@ export class NotificationService {
       params: {
         userId: this.userID,
       },
+      withCredentials: true,
     });
   }
 
@@ -33,7 +35,23 @@ export class NotificationService {
       params: {
         userId: this.userID,
       },
+      withCredentials: true,
     });
+  }
+
+  deleteNotification(notificationId: number) {
+    const re = this.http.delete('http://localhost:3000/notification', {
+      params: {
+        userId: this.userID,
+        notificationId: notificationId,
+      },
+
+      withCredentials: true,
+    });
+    re.subscribe((data) => {
+      console.log('notification data$', data);
+    })
+    return re;
   }
 
   updateNotification(notificationId: any) {
@@ -42,15 +60,34 @@ export class NotificationService {
         userId: this.userID,
         notificationId: notificationId,
       },
+      withCredentials: true,
     });
   }
 
-  resetNotifications() {
-    console.log('this.userID', this.userID);
-    return this.http.put('http://localhost:3000/notification/resetAllRead', {
-      params: {
-        userId: this.userID,
+  deleteNotifications(notificationsId: any) {
+    return this.http.put(
+      'http://localhost:3000/notification/delete',
+      {
+        notificationsId,
       },
-    });
+      {
+        params: {
+          userId: this.userID,
+        },
+        withCredentials: true,
+      },
+    );
+  }
+  resetNotifications() {
+    return this.http.put(
+      'http://localhost:3000/notification/resetAllRead',
+      {},
+      {
+        params: {
+          userId: this.userID,
+        },
+        withCredentials: true,
+      },
+    );
   }
 }
