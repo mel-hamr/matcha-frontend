@@ -1,18 +1,26 @@
+:host{
+  height: 100%;
+}
+
 .otherProfilePage {
   align-self: flex-start;
-  width: 75vw;
-  height: 85vh;
+  width: 100%;
+  height: 100%;
   min-height: 960px;
   border-radius: 20px;
   display: flex;
+  flex-direction: column;
+  // justify-content: start;
+  align-items: center;
+  overflow-y: scroll;
   gap: 30px;
   // border: 1px solid var(--primary-color-light);
   padding: 10px 20px;
   // Picture Box Styling
   .pictureBox {
     // background-color: aquamarine;
-    width: 35%;
-    height: 100%;
+    // width: 35%;
+    // height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,7 +33,8 @@
       justify-content: center;
       align-items: center;
       width: 80%;
-      height: 75%;
+      // height: 75%;
+      aspect-ratio: 1/1.5;
       .mainPicture {
         width: 100%;
         height: 100%;
@@ -34,18 +43,17 @@
       }
       .actionBox {
         width: 90%;
-        height: 12%;
+        height: 50px;
         position: absolute;
         bottom: 5%;
         display: flex;
         align-items: center;
-        justify-content: space-around;
-        gap: 10px;
+        justify-content: space-evenly;
         padding: 10px 5px;
         background-color: var(--secondary-color);
         border-radius: 20px;
         .messageBox {
-          width: 60%;
+          width: 45%;
           height: 40px;
           padding: 5px 10px;
           background-color: var(--primary-color);
@@ -66,8 +74,8 @@
           }
         }
         .likeButton,.cancelButton {
-          width: 40px;
-          height: 40px;
+          width: 20%;
+          aspect-ratio: 1/1;
           cursor: pointer;
           background-color: var(--primary-color);
           border-radius: 50%;
@@ -89,14 +97,15 @@
       }
     }
     .previewImages {
-      height: 20%;
-      width: 100%;
+      // height: 20%;
+      // width: 100%;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
       gap: 15px;
       .previewPicture {
-        width: 16%;
+        width: 90px;
         height: 125px;
         border-radius: 10px;
         object-fit: cover;
@@ -106,11 +115,12 @@
 
   // User Info Box Styling
   .infoBox {
-    width: 60%;
-    height: 100%;
+    // width: 60%;
+    // height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    gap: 10px;
     .twoFieldSection {
       // background-color: aquamarine;
       width: 100%;
@@ -121,7 +131,6 @@
         width: 48%;
         gap: 10px;
         display: flex;
-        justify-content: space-between;
         flex-direction: column;
       }
     }
@@ -132,7 +141,7 @@
       gap: 10px;
     }
     .valueField {
-      font-size: 1.1rem;
+      font-size: .9rem;
       display: flex;
       align-items: center;
       padding: 15px 20px;
@@ -165,8 +174,23 @@
       }
     }
     .label {
-      font-size: 1.2rem;
+      font-size: .9rem;
       color: var(--text-color);
+    }
+  }
+}
+
+
+////////////////////////////////////////
+///////////// Media Queary /////////////
+////////////////////////////////////////
+
+@media (width <= 1440px){
+  .otherProfilePage{
+    // background-color: #000;
+    // height: 85%;
+    .pictureBox{
+      // width: 60%;
     }
   }
 }

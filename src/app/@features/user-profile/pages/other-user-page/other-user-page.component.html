@@ -1,5 +1,5 @@
-<div class="otherProfilePage">
-  <div class="pictureBox">
+<div class="otherProfilePage ">
+  <div class="pictureBox w-64 ">
     <div class="mainPictureBox">
       <div class="actionBox absolute">
         <span
@@ -18,7 +18,7 @@
             src="./../../../../../assets/images/Message Icon.svg"
             alt="message"
           />
-          <p>Message</p>
+          <p class="hidden md:block">Message</p>
         </div>
         <span
           class="likeButton"
@@ -30,7 +30,7 @@
       </div>
       <img [src]="mainPicture" alt="Avatar" class="mainPicture" />
     </div>
-    <div class="previewImages">
+    <div class="previewImages ">
       <img
         *ngFor="let index of [0, 1, 2, 3, 4]"
         [src]="images[index]"
@@ -41,7 +41,7 @@
       />
     </div>
     <div
-      class="rateProfile flex w-[90%] items-center justify-center gap-2 rounded-md bg-secondary-color px-5 py-3 text-primary-color-light"
+      class="rateProfile flex w-64 items-center justify-center gap-2 rounded-md bg-secondary-color px-5 py-3 text-primary-color-light"
     >
       <p>Rate This Profile :</p>
       <div class="flex items-center justify-center">
@@ -59,7 +59,7 @@
       </div>
     </div>
   </div>
-  <div class="infoBox">
+  <div class="infoBox w-64">
     <div class="twoFieldSection">
       <div class="field">
         <label class="label"> First Name </label>
@@ -86,8 +86,8 @@
         <span class="valueField"> {{ user.gender }}</span>
       </div>
       <div class="field">
-        <label class="label">Sexual Preference</label>
-        <span class="valueField"> {{ user.sexual_preference }}</span>
+        <label class="label">S.Preference</label>
+        <span class="valueField "> {{ user.sexual_preference }}</span>
       </div>
     </div>
     <div class="twoFieldSection">
