@@ -27,4 +27,10 @@ export class UserApiService {
       withCredentials: true,
     })
    }
+   getSortedUsers() {
+    return this.http
+    .get<any>(`${this.baseURL}/allUsers`, {
+      withCredentials: true,
+    })
+   }
 }

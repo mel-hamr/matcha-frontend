@@ -33,6 +33,14 @@ export class OtherUserPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userApiService.getSortedUsers().subscribe({
+      next: (ret) => {
+        console.log(ret);
+      },
+      error: (error) => {
+        console.log(error.error);
+      },
+    })
     this.userApiService.getUser(this.user.username).subscribe({
       next: (ret) => {
         console.log(ret);

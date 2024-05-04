@@ -41,9 +41,9 @@
       />
     </div>
     <div
-      class="rateProfile flex w-64 items-center justify-center gap-2 rounded-md bg-secondary-color px-5 py-3 text-primary-color-light"
+      class="rateProfile text-xs flex w-64 items-center justify-center gap-2 rounded-md bg-secondary-color px-5 py-3 text-primary-color-light"
     >
-      <p>Rate This Profile :</p>
+      <p>Rate Profile :</p>
       <div class="flex items-center justify-center">
         <mat-icon
           *ngFor="let index of [0, 1, 2, 3, 4]"
@@ -106,7 +106,7 @@
             [ngStyle]="{
               color: index < user.rating ? 'var(--primary-color)' : '#77AFB1'
             }"
-            class="ratingHearth"
+            class="ratingHearth "
             >favorite</mat-icon
           >
         </div>
